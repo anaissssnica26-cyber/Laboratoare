@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<title>Exercițiul 4</title>
+<script>
+    function schimbaToate() {
+        // Găsim cele 3 paragrafe
+        var p1 = document.getElementById("p1");
+        var p2 = document.getElementById("p2");
+        var p3 = document.getElementById("p3");
+
+        // Modificăm textele și culorile
+        p1.innerHTML = "Acesta este paragraful 1";
+        p1.style.color = "white";
+        p1.style.backgroundColor = "red";
+
+        p2.innerHTML = "Acesta este paragraful 2";
+        p2.style.color = "black";
+        p2.style.backgroundColor = "yellow";
+
+        p3.innerHTML = "Acesta este paragraful 3";
+        p3.style.color = "white";
+        p3.style.backgroundColor = "blue";
+    }
+</script>
+</head>
+<body>
+    
+    <p id="p1">Text vechi 1</p>
+    <p id="p2">Text vechi 2</p>
+    <p id="p3">Text vechi 3</p>
+    
+    <!-- Butonul apelează funcția de mai sus -->
+    <button onclick="schimbaToate()">Modifică paragrafele</button>
+
+    <br><br>
+    <a href="index.html">Înapoi la lista temelor</a>
+</body>
+</html>

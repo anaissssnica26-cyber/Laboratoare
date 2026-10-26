@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<title>Exercițiul Bonus - Contor Bec</title>
+<script>
+    // Variabila este declarată în afara funcției pentru a reține valoarea între click-uri
+    var contor = 0;
+
+    function schimbaStarea() {
+        var bec = document.getElementById("imagine-bec");
+        var mesaj = document.getElementById("paragraf-contor");
+
+        // Verificăm dacă imaginea curentă conține cuvântul "stins" în sursa ei
+        if (bec.src.includes("stins")) {
+            // Dacă e stins, îl aprindem
+            bec.src = "Bec aprins.gif";
+            contor++; // Creștem numărătoarea
+            mesaj.innerHTML = "Becul a fost aprins de " + contor + " ori.";
+        } else {
+            // Dacă e aprins, îl stingem
+            bec.src = "Bec stins.gif";
+        }
+    }
+</script>
+</head>
+<body>
+    
+    <h1>Exercițiu Bonus: Contor</h1>
+    
+    <!-- Imaginea becului, care la click apelează funcția -->
+    <img id="imagine-bec" src="Bec stins.gif" alt="Bec" onclick="schimbaStarea()" style="cursor: pointer; border: 2px solid black;">
+    
+    <!-- Paragraful unde se va afișa numărul de aprinderi -->
+    <p id="paragraf-contor" style="font-size: 18px; font-weight: bold;">
+        Becul nu a fost aprins încă.
+    </p>
+
+    <br><br>
+    <a href="index.html">Înapoi la lista temelor</a>
+</body>
+</html>
