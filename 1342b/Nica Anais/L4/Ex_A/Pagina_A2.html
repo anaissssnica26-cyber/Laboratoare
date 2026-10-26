@@ -4,6 +4,12 @@
 <meta charset="UTF-8">
 <title>Pagina A2</title>
 <style>
+    /* EXERCIȚIUL BONUS: h1.center (tag + clasă) are specificitate mai mare decât clasa simplă */
+    h1.center {
+        background-color: #00cc66;
+        color: orange;
+    }
+
     .center {
         font-variant: small-caps;
         color: blue;
@@ -25,7 +31,13 @@
     <h1 class="center">Heading roșu centrat</h1>
     <p>Paragraf roșu centrat</p>
     
-    <!-- Link corectat adăugând extensia .html -->
     <a href="Pagina_A1.html">Pagina 1</a>
+
+    <!-- 
+    EXPLICAȚIE EXERCIȚIU BONUS:
+    De ce o regulă "h1 { ... }" scrisă în același loc nu ar fi suficientă?
+    Răspuns: Conform cascadei CSS, un selector de clasă (.center) are o specificitate mai mare decât un selector de tag (h1). Dacă am fi folosit doar "h1", clasa ".center" declarată mai jos ar fi învins, iar titlul ar fi rămas roșu/albastru. 
+    Folosind selectorul compus "h1.center" (care combină tag-ul cu clasa), am creat o regulă mai specifică decât ".center" simplu, obținând astfel prioritate maximă, chiar dacă am scris regula chiar la începutul blocului de stiluri.
+    -->
 </body>
 </html>
