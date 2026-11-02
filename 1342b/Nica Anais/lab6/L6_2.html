@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Acest titlu va fi modificat cu document.title</title>
+</head>
+<body>
+
+<p>Salutare, <br /> oameni buni!</p>
+
+<p>Folositi metoda <b>getElementsByTagName</b></p>
+
+<p>Acest text va fi colorat <br /> de la ultimul paragraf.</p>
+
+<script>
+    document.title = "Pagina cu paragrafe modificate";
+    var paragrafe = document.getElementsByTagName("p");
+    
+    if (paragrafe.length > 0) {
+        paragrafe[0].style.color = "red";
+        paragrafe[paragrafe.length - 1].style.color = "blue";
+    }
+</script>
+
+</body>
+</html>

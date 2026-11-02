@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Modificare imagini la evenimente</title>
+</head>
+<body>
+
+<h3>Imagine 1: Pisici (la click)</h3>
+<img id="img1" src="Pesti.jpg" width="200px">
+
+<h3>Imagine 2: Caini (la mouseover)</h3>
+<img id="img2" src="desert.jpg" width="200px">
+
+<h3>Imagine 3: Munti (la mouseout)</h3>
+<img id="img3" src="egrete.jpg" width="200px">
+
+<script>
+    var img1 = document.getElementById("img1");
+    var img2 = document.getElementById("img2");
+    var img3 = document.getElementById("img3");
+
+    img1.onclick = function() {
+        this.src = "Img/pisici.jpg";
+    };
+
+    img2.onmouseover = function() {
+        this.src = "Img/caini.jpg";
+    };
+
+    img3.onmouseout = function() {
+        this.src = "Img/munti.jpg";
+    };
+</script>
+
+</body>
+</html>

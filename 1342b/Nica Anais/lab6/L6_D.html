@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<title>Galerie Bonus</title>
+</head>
+<body>
+
+<img id="imagine-galerie" src="Img/pisici.jpg" width="400px"><br><br>
+
+<button onclick="schimbaImagine(-1)">Înapoi</button>
+<button onclick="schimbaImagine(1)">Înainte</button>
+
+<p id="text-galerie">Imaginea 1 din 4</p>
+
+<script>
+    var imagini = ["Img/pisici.jpg", "Img/caini.jpg", "Img/munti.jpg", "Img/mare.jpg"];
+    var curent = 0;
+
+    function schimbaImagine(directie) {
+        curent = curent + directie;
+        
+        if (curent < 0) {
+            curent = imagini.length - 1;
+        } else {
+            curent = curent % imagini.length;
+        }
+
+        document.getElementById("imagine-galerie").src = imagini[curent];
+        document.getElementById("text-galerie").innerHTML = "Imaginea " + (curent + 1) + " din " + imagini.length;
+    }
+</script>
+
+</body>
+</html>

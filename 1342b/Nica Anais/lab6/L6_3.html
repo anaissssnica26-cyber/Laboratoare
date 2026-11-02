@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<title>Modificare după clasă</title>
+</head>
+<body>
+
+<p class="by">Primul element cu clasa "by".</p>
+<p>Un paragraf normal, fără nicio clasă.</p>
+<h2 class="yb">Un titlu cu clasa "yb".</h2>
+<p class="by">Al doilea element cu clasa "by".</p>
+
+<script>
+    var claseBy = document.getElementsByClassName("by");
+    for (var i = 0; i < claseBy.length; i++) {
+        claseBy[i].style.color = "blue";
+        claseBy[i].style.backgroundColor = "yellow";
+    }
+
+    var claseYb = document.getElementsByClassName("yb");
+    for (var j = 0; j < claseYb.length; j++) {
+        claseYb[j].style.color = "yellow";
+        claseYb[j].style.backgroundColor = "blue";
+    }
+</script>
+
+</body>
+</html>

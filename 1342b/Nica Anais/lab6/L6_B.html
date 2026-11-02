@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ro">
+<body>
+    <button onclick="schimbaIntreEle()">Schimbă textele între ele</button>
+    <p id="p1" style="color:red;" onclick="cereText('p1')">Primul paragraf roșu.</p>
+    <p id="p2" style="color:blue;" onclick="cereText('p2')">Al doilea paragraf albastru.</p>
+
+    <script>
+        function cereText(idParagraf) {
+            var textNou = prompt("Introduceți un text nou:");
+            if (textNou !== null && textNou !== "") {
+                document.getElementById(idParagraf).innerHTML = textNou;
+            }
+        }
+        function schimbaIntreEle() {
+            var p1 = document.getElementById("p1");
+            var p2 = document.getElementById("p2");
+            var temp = p1.innerHTML;
+            p1.innerHTML = p2.innerHTML;
+            p2.innerHTML = temp;
+        }
+    </script>
+</body>
+</html>
