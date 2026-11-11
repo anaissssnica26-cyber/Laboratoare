@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>User - Parola MD5</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+</head>
+<body>
+    <h2>Inscriere (Parola MD5)</h2>
+    <input id="userInscriere" placeholder="Nume utilizator">
+    <input id="passInscriere" type="password" placeholder="Parola">
+    <button onclick="inscriere()">Inscriere (Criptat)</button>
+
+    <h2>Verificare</h2>
+    <input id="userVerificare" placeholder="Nume utilizator">
+    <input id="passVerificare" type="password" placeholder="Parola">
+    <button onclick="verificare()">Verifica</button>
+
+    <p id="mesaj" style="font-weight:bold; color:red;"></p>
+
+    <script>
+        function inscriere() {
+            var u = document.getElementById("userInscriere").value;
+            var p = document.getElementById("passInscriere").value;
+            var hash = CryptoJS.MD5(p).toString();
+            localStorage.setItem(u, hash);
+            document.getElementById("mesaj").innerHTML = "Utilizator salvat (amprenta MD5)!";
+        }
+
+        function verificare() {
+            var u = document.getElementById("userVerificare").value;
+            var p = document.getElementById("passVerificare").value;
+            
+            var amprentaSalvata = localStorage.getItem(u);
+            var hashCurent = CryptoJS.MD5(p).toString();
+            
+            if (!amprentaSalvata) {
+                document.getElementById("mesaj").innerHTML = "Eroare: Utilizatorul nu exista.";
+            } else if (amprentaSalvata === hashCurent) {
+                document.getElementById("mesaj").innerHTML = "Succes: Parola corecta! Acces permis.";
+            } else {
+                document.getElementById("mesaj").innerHTML = "Eroare: Parola gresita.";
+            }
+        }
+    </script>
+</body>
+</html>

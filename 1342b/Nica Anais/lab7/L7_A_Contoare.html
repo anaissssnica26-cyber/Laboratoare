@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Contoare Storage</title>
+</head>
+<body>
+    <h2>Testare Local vs Session Storage</h2>
+    
+    <button onclick="clickLocal()">Click Local Storage</button>
+    <p>Valoare Local: <span id="rezLocal" style="font-weight:bold;">0</span></p>
+
+    <button onclick="clickSesiune()">Click Session Storage</button>
+    <p>Valoare Session: <span id="rezSesiune" style="font-weight:bold;">0</span></p>
+
+    <script>
+        function clickLocal() {
+            if (localStorage.clickcount) {
+                localStorage.clickcount = Number(localStorage.clickcount) + 1;
+            } else {
+                localStorage.clickcount = 1;
+            }
+            document.getElementById("rezLocal").innerHTML = localStorage.clickcount;
+        }
+
+        function clickSesiune() {
+            if (sessionStorage.getItem("clickcount")) {
+                sessionStorage.setItem("clickcount", Number(sessionStorage.getItem("clickcount")) + 1);
+            } else {
+                sessionStorage.setItem("clickcount", 1);
+            }
+            document.getElementById("rezSesiune").innerHTML = sessionStorage.getItem("clickcount");
+        }
+        
+        if(localStorage.clickcount) {
+            document.getElementById("rezLocal").innerHTML = localStorage.clickcount;
+        }
+        if(sessionStorage.getItem("clickcount")) {
+            document.getElementById("rezSesiune").innerHTML = sessionStorage.getItem("clickcount");
+        }
+    </script>
+</body>
+</html>

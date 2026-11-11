@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>User - Parola in clar</title>
+</head>
+<body>
+    <h2>Inscriere (Parola in clar)</h2>
+    <input id="userInscriere" placeholder="Nume utilizator">
+    <input id="passInscriere" type="password" placeholder="Parola">
+    <button onclick="inscriere()">Inscriere</button>
+
+    <h2>Verificare</h2>
+    <input id="userVerificare" placeholder="Nume utilizator">
+    <input id="passVerificare" type="password" placeholder="Parola">
+    <button onclick="verificare()">Verifica</button>
+
+    <p id="mesaj" style="font-weight:bold; color:blue;"></p>
+
+    <script>
+        function inscriere() {
+            var u = document.getElementById("userInscriere").value;
+            var p = document.getElementById("passInscriere").value;
+            localStorage.setItem(u, p);
+            document.getElementById("mesaj").innerHTML = "Utilizator salvat (parola in clar)!";
+        }
+
+        function verificare() {
+            var u = document.getElementById("userVerificare").value;
+            var p = document.getElementById("passVerificare").value;
+            
+            var parolaSalvata = localStorage.getItem(u);
+            
+            if (!parolaSalvata) {
+                document.getElementById("mesaj").innerHTML = "Eroare: Utilizatorul nu exista.";
+            } else if (parolaSalvata === p) {
+                document.getElementById("mesaj").innerHTML = "Succes: Parola este corecta!";
+            } else {
+                document.getElementById("mesaj").innerHTML = "Eroare: Parola gresita.";
+            }
+        }
+    </script>
+</body>
+</html>
